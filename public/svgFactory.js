@@ -81,7 +81,10 @@ function makeCircle(x, y, r, c){
    circ.setAttribute('cx', x);
    circ.setAttribute('cy', y);
    circ.setAttribute('r', r);
+
    circ.style.fill = c;
+   circ.style.strokeWidth = 1;
+   circ.style.stroke = "#000000";
 
    return circ;
 

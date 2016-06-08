@@ -44,10 +44,26 @@ function drawBoard(state){
 
     // TODO: Implement board drawing. 
     var size = state.size;
-    var gridSize = 600/size
-    for (var i = 0;i< size; i++)
-        for (var j = 0;j< size; j++)
-            svg.append(makeRectangle(j*gridSize,i*gridSize,gridSize,gridSize,"#FFFFFF"));
+    var board = state.board;
+    var gridSizeNonScaled = 600/size
+    var gridSizeScaled = (600-2*gridSizeNonScaled)/size
+    svg.append(makeRectangle(gridSizeNonScaled,gridSizeNonScaled,600-2*gridSizeNonScaled,600-2*gridSizeNonScaled,"#C594A8"));
+    var ratio = size/(size-1);
+    for (var i = 1; i < size-1; i++) 
+        svg.append(makeLine(i*gridSizeScaled*ratio+gridSizeNonScaled,gridSizeNonScaled,i*gridSizeScaled*ratio+gridSizeNonScaled,600-gridSizeNonScaled,"#000000",1));
+    console.log(state);
+    for (var i = 1; i < size-1; i++) 
+        svg.append(makeLine(gridSizeNonScaled,i*gridSizeScaled*ratio+gridSizeNonScaled,600-gridSizeNonScaled,i*gridSizeScaled*ratio+gridSizeNonScaled,"#000000",1));
+
+    for (var i = 0;i< size; i++) {
+        for (var j = 0;j< size; j++) {
+            //svg.append(makeRectangle(j*gridSize,i*gridSize,gridSize,gridSize,"#777777"));
+            //if (board[i][j] == 1) 
+            //    svg.append(makeCircle(j*gridSize+gridSize/2,i*gridSize+gridSize/2,gridSize/2,"#FFFFFF"));
+            //if (board[i][j] == 2) 
+            //    svg.append(makeCircle(j*gridSize+gridSize/2,i*gridSize+gridSize/2,gridSize/2,"#000000"));
+        }
+    }
     
     //  You will want to append elements to the 
     //  svg variable using the svg.append(....) 
