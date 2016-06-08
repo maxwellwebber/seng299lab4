@@ -59,6 +59,8 @@ function makeRectangle(x, y, w, h, c){
    rect.setAttribute('y', y);
 
    rect.style.fill = c;
+   rect.style.strokeWidth = 1;
+   rect.style.stroke = "#000000";
 
    return rect; 
 }

@@ -9,7 +9,6 @@ function getData(cb){
         console.log("Response for /data: "+textStatus);  
 
         // handle any errors here....
-
         // draw the board....
         cb(data);  
 
@@ -44,6 +43,11 @@ function drawBoard(state){
     var svg = $(makeSVG(W, H));
 
     // TODO: Implement board drawing. 
+    var size = state.size;
+    var gridSize = 600/size
+    for (var i = 0;i< size; i++)
+        for (var j = 0;j< size; j++)
+            svg.append(makeRectangle(j*gridSize,i*gridSize,gridSize,gridSize,"#FFFFFF"));
     
     //  You will want to append elements to the 
     //  svg variable using the svg.append(....) 
