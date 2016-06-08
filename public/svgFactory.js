@@ -58,7 +58,7 @@ function makeRectangle(x, y, w, h, c){
    rect.setAttribute('x', x);
    rect.setAttribute('y', y);
 
-   rect.style.fill = "green";
+   rect.style.fill = c;
 
    return rect; 
 }
@@ -76,8 +76,10 @@ function makeRectangle(x, y, w, h, c){
 function makeCircle(x, y, r, c){
 
    var circ = document.createElementNS(SVGNameSpace, "circle"); 
-
-    // TODO: Implement me. Checkout docs at: http://www.w3schools.com/svg/svg_circle.asp
+   circ.setAttribute('cx', x);
+   circ.setAttribute('cy', y);
+   circ.setAttribute('r', r);
+   circ.style.fill = c;
 
    return circ;
 
